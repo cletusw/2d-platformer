@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Ludiq;
+using Bolt;
 
 public class PlayerController : MonoBehaviour
 {
@@ -55,8 +57,14 @@ public class PlayerController : MonoBehaviour
         hasKey = true;
     }
 
-    // Called from SpikesController
+    // Called from SpikesController, DamageController
     void Death() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void Hurt() {
+        Debug.Log("Hurt");
+        GetComponent<Animator>().SetBool("Hurt", true);
+        CustomEvent.Trigger(gameObject, "Hurt");
     }
 }
