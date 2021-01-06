@@ -4,9 +4,9 @@ using UnityEngine;
 using Ludiq;
 using Bolt;
 
-public class TestController : MonoBehaviour
+public class DamageController : MonoBehaviour
 {
-    // Called via message from __
+    // Called via message from EnemyController
     void Damage(int damage) {
         var variables = Variables.Object(gameObject);
         int newHealth = Mathf.Max(0, (int) variables.Get("Health") - damage);

@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour
     }
 
     void Hurt() {
-        Debug.Log("Hurt");
         GetComponent<Animator>().SetBool("Hurt", true);
         CustomEvent.Trigger(statesManager, "Hurt");
     }

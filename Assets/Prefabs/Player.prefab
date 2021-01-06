@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 1474501784}
   - component: {fileID: 1474501785}
   - component: {fileID: 3131468074864874422}
+  - component: {fileID: 260126010}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -424,3 +425,15 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"collection":{"$content":[{"name":"Health","value":{"$content":3,"$type":"System.Int32"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
+--- !u!114 &260126010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784235645598328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad27a5931494a74ea5cc8f958037927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
