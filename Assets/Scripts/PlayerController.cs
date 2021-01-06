@@ -25,8 +25,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 0.3f, Vector2.down, 1.0f, LayerMask.GetMask("Platforms"));
-        grounded = hit.collider != null;
+        grounded = Util.isGrounded(transform.position);
     }
 
     void Update()
