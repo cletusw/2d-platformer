@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5;
     public float jumpForce = 12;
+    public GameObject statesManager;
     Rigidbody2D rigidbody2d;
     Vector2 currentMovementInput;
     bool grounded = false;
@@ -17,6 +18,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        if (statesManager == null) {
+            Debug.LogError("Missing statesManager!");
+        }
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
@@ -65,6 +69,6 @@ public class PlayerController : MonoBehaviour
     void Hurt() {
         Debug.Log("Hurt");
         GetComponent<Animator>().SetBool("Hurt", true);
-        CustomEvent.Trigger(gameObject, "Hurt");
+        CustomEvent.Trigger(statesManager, "Hurt");
     }
 }
