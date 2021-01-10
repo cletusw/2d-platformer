@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private GameObject player;
+    private bool dying;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -22,10 +23,30 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    void Update() {
+        if (dying) {
+            transform.Rotate(0, 0, 720 * Time.deltaTime);
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.CompareTag("Player")) {
             collision.collider.gameObject.SendMessage("Damage", 1);
         }
+    }
+
+    // Called from ProjectileController
+    void Death() {
+        CustomEvent.Trigger(gameObject, "Death");
+    }
+
+    public void DoDeath() {
+        dying = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        GetComponent<Animator>().SetFloat("Speed", 0);
+        Destroy(gameObject, 5);
     }
 
     public void Walk(int direction = 0) {
