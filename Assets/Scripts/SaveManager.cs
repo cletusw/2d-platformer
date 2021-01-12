@@ -11,6 +11,12 @@ public static class SaveManager
         PlayerPrefs.Save();
     }
 
+    public static void reset() {
+        for (var i = 0; i < 5; i++) {
+            PlayerPrefs.DeleteKey(getKey("Level" + i));
+        }
+    }
+
     private static string getKey(string sceneName) {
       return sceneName + "_Unlocked";
     }
