@@ -16,7 +16,6 @@ public class ObjectiveController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.CompareTag("Player")) {
             SaveManager.setLevelUnlocked(nextScene);
-            Debug.Log(SaveManager.isLevelUnlocked(nextScene));
             SceneManager.LoadScene(nextScene);
         }
     }

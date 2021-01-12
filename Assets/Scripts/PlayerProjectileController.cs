@@ -14,7 +14,7 @@ public class PlayerProjectileController : MonoBehaviour
         hasProjectiles = true;
         var hudProjectileController = GameObject.Find("HUD").GetComponentInChildren<HudProjectileController>();
         if (hudProjectileController == null) {
-            Debug.Log("No hudProjectileController found!");
+            Debug.LogError("No hudProjectileController found!");
         }
         else {
             hudProjectileController.GotProjectiles();

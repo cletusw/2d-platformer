@@ -18,8 +18,5 @@ public class DoorController : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<SpriteRenderer>().sprite = doorOpenSprite;
         }
-        else {
-            Debug.Log("No key!");
-        }
     }
 }
