@@ -8,11 +8,18 @@ using Bolt;
 
 public class PauseMenuController : MonoBehaviour
 {
+    public GameObject pauseMenu;
     bool isPaused = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (pauseMenu == null) {
+            Debug.LogError("No pauseMenu provided!");
+        }
+        else {
+            pauseMenu.SetActive(false);
+        }
     }
 
     void OnPause() {
